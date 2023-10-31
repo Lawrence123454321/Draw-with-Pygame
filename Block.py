@@ -1,16 +1,15 @@
 import pygame
 
-# 初始化Pygame
 pygame.init()
 
-# 设置窗口大小
+
 size = (700, 500)
 screen = pygame.display.set_mode(size)
 
-# 设置窗口标题
-pygame.display.set_caption("My Game")
 
-# 创建精灵
+pygame.display.set_caption("Game")
+
+
 class MySprite(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -20,15 +19,15 @@ class MySprite(pygame.sprite.Sprite):
         self.rect.x = 50
         self.rect.y = 50
 
-# 添加精灵到组中
+
 my_group = pygame.sprite.Group()
 my_sprite = MySprite()
 my_group.add(my_sprite)
 
-# 创建时钟对象
+
 clock = pygame.time.Clock()
 
-# 游戏循环
+
 done = False
 gravity = 1
 stop = False
@@ -46,16 +45,14 @@ while not done:
             elif event.key == pygame.K_DOWN:
                 my_sprite.rect.y += 10
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                print("鼠标点击" + str(my_sprite.rect.y))
-    # 处理事件
+                print("Press" + str(my_sprite.rect.y))
 
-    # 绘制背景
     screen.fill((255, 255, 255))
 
-    # 绘制精灵
+
     my_group.draw(screen)
 
-    # 更新窗口
+
     pygame.display.update()
 
     # 控制游戏帧率
